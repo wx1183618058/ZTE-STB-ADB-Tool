@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<head>
+    <title>登录</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333333;
+            background-color: rgb(245, 240, 240);
+        }
+
+        a {
+            cursor: pointer;
+            color: rgb(34, 144, 240);
+        }
+
+        .bind {
+            text-align: center;
+
+        }
+
+        .title {
+            margin: 30px 0px;
+            font-size: 20px;
+            width: inherit;
+            height: 35px;
+        }
+
+        .bind-form {
+            margin-top: 100px;
+            width: 300px;
+            background-color: #FFF;
+            border: 1px solid #DCDFE6;
+            padding: 20px;
+            display: inline-block;
+        }
+
+        .form-bobdy {
+            display: block;
+        }
+
+        .input-item {
+            width: 300px;
+            -webkit-appearance: none;
+            background-color: #FFF;
+            background-image: none;
+            border-radius: 4px;
+            border: 1px solid #DCDFE6;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            color: #606266;
+            display: inline-block;
+            font-size: inherit;
+            height: 40px;
+            line-height: 40px;
+            outline: 0;
+            padding: 0 15px;
+        }
+
+        .button {
+            width: 300px;
+            display: inline-block;
+            line-height: 1;
+            white-space: nowrap;
+            cursor: pointer;
+            background-color: #409EFF;
+            border: 1px solid #DCDFE6;
+            border-color: #409EFF;
+            color: #fff;
+            -webkit-appearance: none;
+            text-align: center;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            outline: 0;
+            margin: 0;
+            -webkit-transition: .1s;
+            transition: .1s;
+            font-weight: 500;
+            padding: 12px 20px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+
+        .form-item {
+            margin-bottom: 20px !important;
+            line-height: 40px;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="bind">
+
+            <div class="bind-form">
+                <div class="title">中兴随机码计算器</div>
+                <div class="form-item">
+                    <input id="mac" class="input-item" type="text" name="mac" placeholder="MAC">
+                    </input>
+                </div>
+                <div class="form-item">
+                    <input id="random" class="input-item" style="width: 300px;" name="random" placeholder="随机码"
+                        type="text">
+                    </input>
+                </div>
+                <div class="form-item">
+                    <input id="password" class="input-item" style="width: 300px;" name="password" placeholder="密码"
+                        type="text" readonly>
+                    </input>
+                </div>
+                <div class="form-item">
+                    <input class="button" type="submit" value="计算" onclick="hash()"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="hashcode.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function hash() {
+            mac = document.getElementById("mac").value;
+            random = document.getElementById("random").value;
+            console.log(mac, random);
+            password = hash_code(mac, random);
+            console.log(password)
+            document.getElementById("password").value = password
+        }
+    </script>
+</body>
+
+</html>
